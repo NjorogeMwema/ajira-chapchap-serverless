@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajira Chapchap - Verified Jobs for Kenyan Youth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-800 antialiased">
+
+    <header class="bg-gradient-to-r from-indigo-700 to-blue-600 shadow-xl sticky top-0 z-20 py-4">
+        <nav class="container mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center">
+            <h1 class="text-4xl font-extrabold text-white mb-2 sm:mb-0 drop-shadow">Ajira Chapchap</h1>
+            <div class="flex items-center space-x-3 sm:space-x-5">
+                <button id="all-jobs-tab" class="px-5 py-2 text-base font-semibold rounded-full transition-all duration-300 transform hover:scale-105 bg-white text-blue-600 shadow-md ring-2 ring-indigo-300">All Jobs</button>
+                <button id="saved-jobs-tab" class="relative px-5 py-2 text-base font-semibold text-white bg-indigo-500 rounded-full shadow-md hover:bg-indigo-600 transition-all duration-300 transform hover:scale-105">
+                    Saved Jobs
+                    <span id="saved-count" class="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white shadow-sm">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 py-8 md:py-12">
+
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">Find Your Next Opportunity, <span class="text-blue-600">Safely.</span></h2>
+            <p class="text-gray-600 mt-3 max-w-3xl mx-auto text-lg">
+                We use advanced AI to verify job listings for Kenyan youth, helping you avoid scams and find legitimate opportunities faster. Look for the <span class="font-semibold text-indigo-600">Verification Score</span> on each job card.
+            </p>
+            <div class="mt-8 max-w-3xl mx-auto flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <input type="text" id="search-bar" placeholder="🔍 Search by job title or company..." 
+                       class="w-full px-5 py-3 border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent transition-all duration-200 text-lg">
+                
+                <select id="category-filter" 
+                        class="w-full sm:w-auto px-5 py-3 border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent bg-white text-lg transition-all duration-200 appearance-none pr-8 bg-[url('data:image/svg+xml;utf8,<svg fill=%27%234a5568%27 height=%2724%27 viewBox=%270 0 24 24%27 width=%2724%27 xmlns=%27http://www.w3.org/2000/svg%27><path d=%27M7 10l5 5 5-5z%27/><path d=%27M0 0h24v24H0z%27 fill=%27none%27/></svg>')] bg-no-repeat bg-right-center">
+                    <option value="all">All Categories</option>
+                    </select>
+            </div>
+        </div>
+
+        <div id="loader" class="flex flex-col justify-center items-center h-64">
+            <div class="loader"></div>
+            <p class="ml-4 text-gray-600 text-lg mt-4">Loading verified jobs for you...</p>
+        </div>
+        
+        <div id="error-message" class="hidden text-center text-red-600 font-semibold bg-red-100 p-6 rounded-xl shadow-md border border-red-200">
+            <p class="text-xl">🚨 Oh no! Could not fetch job listings.</p>
+            <p class="text-md mt-2">Please ensure your API Gateway URL is correct and the backend service is fully operational.</p>
+            <p class="text-sm mt-1 text-gray-500">If the problem persists, try refreshing the page or contact support.</p>
+        </div>
+
+        <div id="job-listings" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            </div>
+        
+        <div id="no-jobs-message" class="hidden text-center text-gray-500 mt-12 p-8 bg-white rounded-xl shadow-md">
+            <p class="text-3xl font-extrabold text-gray-700">No Jobs Found 😞</p>
+            <p class="mt-4 text-lg">Your search or filter criteria yielded no results.</p>
+            <p class="mt-2 text-md">Try adjusting your search term, category filter, or check the 'Saved Jobs' tab.</p>
+        </div>
+
+    </main>
+    
+    <footer class="bg-gray-900 text-white py-8 text-center mt-12 shadow-inner">
+        <p class="text-md">&copy; <span id="current-year"></span> Ajira Chapchap. Empowering Kenyan Youth Safely.</p>
+        <p class="text-sm mt-2 text-gray-400">A project built with ❤️ for the AWS Lambda Hackathon.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

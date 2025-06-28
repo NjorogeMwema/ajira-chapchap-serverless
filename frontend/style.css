@@ -1,0 +1,66 @@
+/* Custom styles for a polished look */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5; /* A softer, modern background */
+    color: #333; /* Darker text for better contrast */
+}
+.job-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none; /* Remove default border, rely on shadow */
+    background-color: #ffffff; /* White background for cards */
+}
+.job-card:hover {
+    transform: translateY(-8px); /* More pronounced lift on hover */
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Stronger, softer shadow */
+}
+.loader {
+    border: 5px solid #e2e8f0; /* light grey */
+    border-top: 5px solid #4f46e5; /* Deeper indigo for loader */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Style for the tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help; /* Indicate it's interactive */
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #2d3748; /* Darker charcoal for tooltip background */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 10; /* Ensure it's above other content */
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s; /* Smooth fade in/out */
+    font-size: 0.85rem;
+    line-height: 1.4;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for tooltip */
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2d3748 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
